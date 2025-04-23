@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Research for Policymakers - Constitutional AI Example</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="header-container">
+        <div class="nav-links">
+            <a href="index.html">Template</a>
+            <a href="example1.html" class="active">Example 1</a>
+            <a href="example2.html">Example 2</a>
+            <a href="about.html">About</a>
+        </div>
+        <input type="text" class="search-input" placeholder="Search papers...">
+    </div>
+    
+    <div class="page-title">
+        <h1>Constitutional AI: Harmlessness from AI Feedback</h1>
+    </div>
+
+
+    <div class="container">
+        <main>
+            <div class="paper-container" >
+                
+                <section style="font-size: 15px">
+                    <h2>THE SAND - METADATA</h2>
+                    
+                    <div class="metadata">
+                        <strong class="section-title">Topic:</strong> 
+                        <div><span class="tag">Training harmless AI by setting a list of principles</span></div>
+                        
+                        <strong class="section-title">Domain:</strong> 
+                        <div><span class="tag">(scaling) Alignment</span></div>
+                        
+                        <strong class="section-title">Subdomains:</strong> 
+                        <div>
+                            <span class="tag">Reinforcement Learning</span> · 
+                            <span class="tag">Constitutional AI</span> ·
+                            <span class="tag">Supervised Learning</span>
+                        </div>
+                        
+                        <strong class="section-title">Policy Issues:</strong> 
+                        <div>
+                            <span class="tag">Harms from AI</span> · 
+                            <span class="tag">AI Alignment</span> · 
+                            <span class="tag">AI Oversight Scalability</span> ·
+                            <span class="tag">AI Auditing</span>
+                        </div>
+                        
+                        <strong class="section-title">Title:</strong> 
+                        <div>Constitutional AI: Harmlessness from AI Feedback</div>
+                        
+                        <strong class="section-title">Published:</strong> 
+                        <div>December 15, 2022</div>
+                        
+                        <strong class="section-title">Authors:</strong> 
+                        <div>Various (from Anthropic)</div>
+                        
+                        <strong class="section-title">Link:</strong> 
+                        <div><a href="https://arxiv.org/pdf/2212.08073" target="_blank">https://arxiv.org/pdf/2212.08073</a></div>
+                    </div>
+                </section>
+                
+                <section>
+                    <h2>THE GIST</h2>
+                    <h3 class="section-title">So... What? (Policy Bottom line):</h3>
+                    <p>Constitutional AI (giving an AI a set of principles to abide by) is shown to be able to train AI systems to be (mostly) harmless without direct human labeling of harmful responses by using a set of principles and self-critique. This makes it a scalable approach to AI safety while making the principles the AI follows explicit, potentially enabling more effective governance through transparency and auditability, rather than simply outcome evaluation.</p>
+                    
+                                        
+                    <h3 class="section-title">Governance considerations:</h3>
+                    <ul>
+                        <li>Part of a possible toolbox for ensuring models are harmless and aligned.</li>
+                        <li>Could enable transparency in AI decision-making via explicit principles set in natural language.</li>
+                        <li>Could be used for audits, since the principles and the AI's adherence to the set principles can be audited.</li>
+                        <li>Enables scaling oversight without proportionate human labor.</li>
+                    </ul>
+                </section>
+                
+                <section>
+                    <h2>THE WAVE</h2>
+                    <h3 class="section-title">Key Context and Findings:</h3>
+                    
+                    <h4>Background Problem / Motivation:</h4>
+                    <p>The authors' (at Anthropic) goal is to train AI systems to be helpful (useful in responding to queries), harmless (refusing harmful requests) and honest. This research addresses several key challenges:</p>
+                    
+                    <ol>
+                        <li><strong><span class="keyword" data-term="scaling-supervision">Scaling supervision:</span></strong> AI assistants are made harmless using human feedback, but this scales poorly as models become more capable and cover more domains. This creates issues including:
+                            <ul>
+                                <li>Human oversight bottleneck: having humans review potentially harmful outputs becomes impractical at scale</li>
+                                <li>Expertise requirements: for some capabilities, domain expertise is required to effectively supervise responses, and humans with this expertise are rare</li>
+                            </ul>
+                            A constitutional approach provides a method to gain consistent application of principles in more diverse contexts, potentially better than humans.
+                        </li>
+                        <li><strong>Reducing evasion:</strong> The most harmless AI-assistant would simply never answer a question (being evasive, or saying "I don't know"). This AI-assistant would also be useless. The authors aim to make the model more harmless, without reducing its helpfulness too much.</li>
+                        <li><strong>Simplicity and Transparency:</strong> Any system will run on a set of principles, and the authors aim to make these explicit, as opposed to hidden within a dataset of labeled human preferences. A simple constitution (set of principles) could allow discourse about which goals are desirable and encode this into a simple list of natural language instructions.</li>
+                    </ol>
+                    
+                    <h4>Comparison/Context:</h4>
+                    <p>The current approach to making AI systems harmless uses <span class="keyword" data-term="rlhf">Reinforcement Learning from Human Feedback (RLHF)</span>. In this paper, the feedback comes not from humans, but from an AI system, thus the authors call it RLAIF - Reinforcement Learning from AI Feedback. The model the authors start with is already trained to be helpful using RLHF, and is then trained to be harmless with RLAIF.</p>
+                    
+                    <h4>Approach/Methods:</h4>
+                    <p>The process is two-tiered:</p>
+                    <ol>
+                        <li>They start with an AI model trained to be helpful only. Then, they input prompts designed to elicit harmful responses. The model responds, and then critiques its responses based on principles defined by the developers. Based on its self-critique, the model revises its response. This critique-revision cycle can be run multiple times to apply different principles.</li>
+                        <li>In the second stage, they again input prompts designed to elicit harmful responses into the more harmless model from stage one, asking it to generate pairs of responses. They then ask the model to choose the more harmless response from each pair. They train a preference model on this dataset, which learns which responses are preferred. Finally, they train the original model to maximize the reward given by this preference model.</li>
+                    </ol>
+                    
+                    <h4>Results:</h4>
+                    <p>Models trained with RLAIF following a constitution are significantly more harmless than models just trained with human feedback, while achieving similar levels of helpfulness. This means RLAIF is a good alternative to RLHF. Models trained with the RLAIF method produced outputs that humans preferred over the ones trained for harmlessness with RLHF.</p>
+                    
+                    <h4>Potential Concerns:</h4>
+                    <p>While this approach makes controlling AI behavior more transparent and accessible through simple principles, these same techniques could potentially be used to make a harmful AI system with less effort.</p>
+                    
+                    <h4>Future Work:</h4>
+                    <p>The results are very general, a proof of concept that could be used to train more specific models, instead of for general harmlessness. This could also help with robustness, i.e., making models less vulnerable to jailbreaks.</p>
+
+                    
+                    <h3 class="section-title">Stakeholders:</h3>
+                    <p>Anyone involved in developing, deploying, regulating, or being impacted by AI systems that cares about the issue of aligning powerful AI with human values and preventing harmful outputs: more specifically AI Safety regulators, AI developers implementing safety measures, Auditors, those developing AI governance frameworks.</p>
+                </section>
+                
+                <section>
+                    <h2>DIVING DEEP</h2>
+                    <div class="tech-level-header">
+                        <h3 class="section-title">Technical Level/Accessibility:</h3>
+                        <div class="tech-level-indicator">
+                            <div class="tech-level-dot filled"></div>
+                            <div class="tech-level-dot filled"></div>
+                            <div class="tech-level-dot"></div>
+                            <div class="tech-level-dot"></div>
+                            <div class="tech-level-dot"></div>
+                        </div>
+                    </div>
+                    <h3 class="section-title">Prerequisites:</h3>
+                    <p>Basic understanding of <span class="keyword" data-term="rlhf">Reinforcement Learning from Human Feedback (RLHF)</span>, <span class="keyword" data-term="supervised-learning">Supervised Learning</span>, <span class="keyword" data-term="preference-models">Preference Models</span>, Fine-tuning, HHH for AI, Scaling Oversight</p>
+                    
+                    <h3 class="section-title">Related Reading:</h3>
+                    <ul class="related-list">
+                        <li><strong>Accessible explanation:</strong> <a href="https://www.anthropic.com/index/constitutional-ai">Anthropic: Constitutional AI Blog Post</a></li>
+                        <li><strong>Original research:</strong> <a href="https://arxiv.org/pdf/2212.08073">Constitutional AI: Harmlessness from AI Feedback</a></li>
+                        <li><strong>Policy Analysis:</strong> <a href="#">Policy Implications of Constitutional AI Approaches</a></li>
+                    </ul>
+                </section>
+            </div>
+        </main>
+        
+        <div class="sidebar" id="sidebar">
+            <button class="close-sidebar" id="closeSidebar">×</button>
+            <h2 id="sidebar-title">Term Definition</h2>
+            <div id="sidebar-content" style="font-weight: 400; line-height: 1.6;">
+                <!-- Content will be dynamically populated -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Include JavaScript files in the correct order -->
+    <script>
+        // Dictionary of technical terms and their explanations
+        const termDefinitions = {
+            'scaling-supervision': `
+                <h3>Scaling supervision</h3>
+                <p>This refers to the challenge of maintained effective supervision as AI systems become more capable and complex. As AI systems become more powerful, the supervision needed to ensure they behave increases. This can create several issues: 1) human oversight bottleneck: for example, having humans review potentially harmful outputs becomes impractical at scale - just think of the challenges of moderating a platform like Facebook 2) expertise requirements: for some capabilities, a certain level of domain expertise is required to effectively supervise and evaluate responses, and humans with this expertise are rare.</p>
+            `,
+            'machine-learning': `
+                <h3>Machine Learning</h3>
+                <p>Machine learning is a field of artificial intelligence that focuses on building systems that can learn from and make decisions based on data. Rather than being explicitly programmed for a task, these systems identify patterns in data to improve their performance over time.</p>
+                <p>Modern AI systems, including large language models, use sophisticated machine learning techniques to process and generate human-like text based on the patterns they've learned from vast datasets.</p>
+            `,
+            'rlhf': `
+                <h3>Reinforcement Learning from Human Feedback (RLHF)</h3>
+                <p>How reinforcement learning from human feedback (RLHF) works: 1) AI models are trained on vast amounts of text data to learn language patterns 2) humans provide feedback by ranking different AI responses from most to least preferred 3) this feedback is used to created a reward model (a complex mathematical model of the preferences) which can predict which responses humans prefer and 4) the AI is trained to maximize the reward it gets from the model, thus learning to generate responses that humans would rate highly</p>
+            `,
+            'nlp': `
+                <h3>Natural Language Processing (NLP)</h3>
+                <p>Natural Language Processing is a field of artificial intelligence focused on enabling computers to understand, interpret, and generate human language. NLP combines computational linguistics, machine learning, and deep learning to process and analyze large amounts of natural language data.</p>
+                <p>Modern NLP systems, including large language models, can perform tasks like translation, summarization, question answering, and text generation with impressive fluency and accuracy.</p>
+            `
+        };
+
+        function toggleTermDefinition(term, clickEvent) {
+    const sidebar = document.getElementById('sidebar');
+    const sidebarContent = document.getElementById('sidebar-content');
+    const sidebarTitle = document.getElementById('sidebar-title');
+    
+    // Check if sidebar is already active and showing the same term
+    if (sidebar.classList.contains('active') && sidebar.getAttribute('data-current-term') === term) {
+        // If it's the same term, close the sidebar
+        sidebar.classList.remove('active');
+    } else {
+        // Get the clicked element's position
+        const clickedElement = clickEvent.target;
+        const rect = clickedElement.getBoundingClientRect();
+        
+        // Get main content element
+        const mainContent = document.querySelector('main');
+        const mainRect = mainContent.getBoundingClientRect();
+        
+        // Update content first so we can calculate height
+        sidebarTitle.textContent = 'Term Definition';
+        sidebarContent.innerHTML = termDefinitions[term] || 'Definition not found';
+        
+        // Show the sidebar to calculate its height, but make it invisible
+        sidebar.style.visibility = 'hidden';
+        sidebar.classList.add('active');
+        
+        // Calculate how much space we have below the clicked term
+        const spaceBelow = window.innerHeight - rect.bottom;
+        
+        // Calculate optimal vertical position
+        let topPosition = rect.top;
+        
+        // If there's not enough space below and sidebar height exceeds available space
+        if (sidebar.offsetHeight > spaceBelow && sidebar.offsetHeight < rect.top) {
+            // Position the sidebar so its bottom aligns with the bottom of the clicked term
+            topPosition = rect.bottom - sidebar.offsetHeight;
+        } else if (sidebar.offsetHeight > spaceBelow && sidebar.offsetHeight > rect.top) {
+            // If sidebar is taller than both spaces, position it at the top of the viewport
+            // with enough room to scroll
+            topPosition = 20; // 20px from top of viewport
+        }
+        
+        // Position sidebar beside main content
+        sidebar.style.top = topPosition + 'px';
+        sidebar.style.left = (mainRect.right + 20) + 'px';
+        sidebar.style.right = 'auto';
+        
+        // Make the sidebar visible again
+        sidebar.style.visibility = 'visible';
+        
+        // Store the current term being displayed
+        sidebar.setAttribute('data-current-term', term);
+    }
+}
+
+// Function to close sidebar
+function closeSidebar() {
+    const sidebar = document.getElementById('sidebar');
+    sidebar.classList.remove('active');
+}
+
+// Event listeners
+document.addEventListener('DOMContentLoaded', function() {
+    // Set up keyword click handlers
+    const keywords = document.querySelectorAll('.keyword');
+    keywords.forEach(keyword => {
+        keyword.addEventListener('click', function(event) {
+            const term = this.getAttribute('data-term');
+            toggleTermDefinition(term, event);
+            event.stopPropagation(); // Prevent bubbling
+        });
+    });
+    
+    // Set up sidebar close button
+    document.getElementById('closeSidebar').addEventListener('click', function(event) {
+        closeSidebar();
+        event.stopPropagation(); // Prevent bubbling
+    });
+    
+    // Close sidebar when clicking elsewhere on the page
+    document.addEventListener('click', function(event) {
+        if (!event.target.closest('.sidebar') && !event.target.classList.contains('keyword')) {
+            closeSidebar();
+        }
+    });
+    
+    // Set up tag click handlers (for domain filtering - would expand in full implementation)
+    const tags = document.querySelectorAll('.tag');
+    tags.forEach(tag => {
+        tag.addEventListener('click', function() {
+            alert(`In a full implementation, this would show all papers tagged with "${this.textContent}"`);
+        });
+    });
+});
+    </script>
+</body>
+</html>

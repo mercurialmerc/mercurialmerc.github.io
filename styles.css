@@ -1,0 +1,325 @@
+@import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&display=swap');
+        
+:root {
+    --primary: #000;
+    --secondary: #333;
+    --accent: #777;
+    --light: #f9f9f9;
+    --dark: #1a1a1a;
+    --text: #000;
+    --border: #e0e0e0;
+    --sidebar-width: 20vw; /* 80% of viewport width */
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'EB Garamond', Georgia, serif;
+}
+
+body {
+    color: var(--text);
+    background-color: white;
+    line-height: 1.6;
+    font-size: 18px;
+}
+
+.page-title {
+    text-align: center;
+    width: 100%;
+    margin: 20px auto;
+    padding-top: 70px; /* This should be enough to clear the fixed header */
+}
+
+/* Update container to position:relative so the absolute positioned sidebar works */
+.container {
+    display: flex;
+    position: relative;
+    min-height: 100vh;
+    max-width: 1200px;
+    margin: 0 auto;
+    margin-top:10px;
+}
+
+main {
+    flex: 1;
+    padding: 1rem 4rem;
+    max-width: 780px;
+    margin: 0 auto;
+}
+
+/* Header navigation and search container */
+.header-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    padding: 1rem 4rem;
+    z-index: 100;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: white;
+    border-bottom: 1px solid var(--border);
+}
+
+.nav-links {
+    display: flex;
+    gap: 1.5rem;
+}
+
+.nav-links a {
+    color: var(--primary);
+    text-decoration: none;
+    font-size: 16px;
+    padding-bottom: 3px;
+    border-bottom: 1px solid transparent;
+    transition: border-color 0.2s;
+}
+
+.nav-links a:hover {
+    border-color: var(--primary);
+}
+
+.search-input {
+    width: 200px;
+    padding: 0.3rem 0.5rem;
+    border: 1px solid var(--border);
+    font-family: 'EB Garamond', Georgia, serif;
+    font-size: 16px;
+}
+
+.paper-container {
+    margin-bottom: 4rem;
+}
+
+section {
+    margin-bottom: 2rem;
+    padding-top: 1rem;
+    border-bottom: 1px solid var(--border);
+}
+
+section:last-child {
+    border-bottom: none;
+}
+
+h1 {
+    color: var(--primary);
+    font-weight: 500;
+    font-size: 32px;
+    line-height: 1.2;
+}
+
+h2 {
+    color: var(--primary);
+    margin: 0 0 1.5rem 0;
+    font-weight: 500;
+    font-size: 24px;
+    letter-spacing: -0.3px;
+}
+
+h3 {
+    color: var(--secondary);
+    margin: 1.5rem 0 0.7rem 0;
+    font-weight: 500;
+    font-size: 20px;
+}
+
+h3.section-title {
+    font-weight: 600;
+}
+
+.metadata {
+    display: grid;
+    grid-template-columns: 120px 1fr;
+    row-gap: 0.8rem;
+    margin-bottom: 1.5rem;
+}
+
+.metadata strong {
+    color: var(--primary);
+    font-weight: 500;
+}
+
+.tag {
+    display: inline;
+    color: var(--dark);
+    padding: 0 0.2rem;
+    margin-right: 0.2rem;
+    font-size: inherit;
+    cursor: pointer;
+    position: relative;
+    border-bottom: 1px dotted #aaa;
+    transition: all 0.2s;
+}
+
+.tag:hover {
+    color: var(--secondary);
+}
+
+.keyword {
+    color: var(--primary);
+    border-bottom: 1px dotted #999;
+    cursor: pointer;
+    position: relative;
+    text-decoration: none;
+    transition: all 0.2s;
+}
+
+.keyword:hover {
+    border-color: var(--primary);
+}
+
+.tech-level {
+    display: block;
+    align-items: center;
+    margin: 1rem 0;
+}
+
+.tech-level-indicator {
+    display: flex;
+    margin-left: 1rem;
+}
+
+.tech-level-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    margin-right: 4px;
+    background-color: #f0f0f0;
+    border: 1px solid #ddd;
+}
+
+.tech-level-dot.filled {
+    background-color: #333;
+    border: 1px solid #333;
+}
+
+.tech-level-header {
+    display: flex;
+    gap: 10px; /* space between heading and dots */
+    align-items: baseline; 
+}
+
+.sidebar {
+    position: fixed;
+    display: none;
+    width: var(--sidebar-width);
+    height: auto;
+    max-height: 80vh; /* Limit height to 80% of viewport */
+    background-color: white;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 2rem;
+    overflow-y: auto; /* Enable vertical scrolling */
+    z-index: 50;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+.sidebar.active {
+display: block;
+}
+
+.close-sidebar {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: var(--dark);
+    font-family: sans-serif;
+}
+
+.related-list {
+    list-style-type: none;
+}
+
+.related-list li {
+    margin-bottom: 0.8rem;
+}
+
+.related-list a {
+    color: var(--primary);
+    text-decoration: none;
+    border-bottom: 1px solid #eee;
+    transition: all 0.2s;
+    font-size: inherit;
+}
+
+.related-list a:hover {
+    border-color: var(--primary);
+}
+
+
+/* Updated list styling */
+ul, ol {
+    padding-left: 1.5rem;  /* Add padding to the list container */
+    margin-bottom: 1rem;   /* Add some margin below lists */
+}
+
+li {
+    margin-bottom: 0.5rem;
+    margin-left: 1rem;     /* Keep existing left margin */
+    padding-left: 0.5rem;  /* Add some padding within list items */
+}
+
+/* If you want different styling for ordered vs unordered lists */
+ul li {
+    list-style-type: disc;  /* You can customize the bullet type */
+}
+
+ol li {
+    list-style-position: outside;  /* Ensures numbers are outside the content box */
+}
+
+ul li strong {
+    font-weight: 600;
+}
+
+sup {
+    font-size: 12px;
+    vertical-align: super;
+    line-height: 0;
+}
+
+p {
+    margin-bottom: 1rem;
+}
+        
+@media (max-width: 768px) {
+    main {
+        flex: 1;
+        padding: 2rem 2rem;
+        max-width: 780px;
+        margin: 0 auto;
+        position: relative; /* Make sure main is a positioning context */
+    }
+    
+    .header-container {
+        padding: 1rem 2rem;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+    }
+    
+    .nav-links {
+        width: 100%;
+        overflow-x: auto;
+        padding-bottom: 0.5rem;
+    }
+    
+    .metadata {
+        grid-template-columns: 1fr;
+    }
+    
+    .sidebar {
+        width: 100%;
+    }
+    
+    .search-input {
+        width: 100%;
+    }
+}

@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Template</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="header-container">
+        <div class="nav-links">
+            <a href="index.html" class="active">Template</a>
+            <a href="example1.html">Example 1</a>
+            <a href="example2.html">Example 2</a>
+            <a href="about.html">About</a>
+        </div>
+        <input type="text" class="search-input" placeholder="Search papers...">
+    </div>
+    
+    <div class="page-title">
+        <h1>Template to communicate Research Insights to Policymakers (TRIP)</h1>
+    </div>
+
+    <div class="container">
+        <main>
+            <div class="paper-container">
+                <div class="template-intro">
+                    <p>This template is designed to bridge the gap between technical AI research and policy understanding. 
+                    Each section is structured to convey information in a way that's accessible to policymakers 
+                    while preserving the technical accuracy of the research. Moving down the sections should provide increasing 
+                    context.</p>
+                </div>
+                
+                <section style="font-size: 15px">
+                    <h2>THE SAND - METADATA</h2>
+                    <p><em>This section gives context for the following summary and information, but is not the focus of the template. Domains, Subdomains and Policy Issues could link to an overview of 
+                        research on the same topics.</em></p>
+                    
+                    <div class="metadata">
+                        <strong class="section-title template-field">Topic:</strong> 
+                        <div><span class="template-placeholder">[Overarching self-defined topic of the paper]</span></div>
+                        
+                        <strong class="section-title template-field">Domain:</strong> 
+                        <div><span class="template-placeholder">[Overarching domain to which the topic belongs]</span></div>
+                        
+                        <strong class="section-title template-field">Subdomains:</strong> 
+                        <div><span class="template-placeholder">[Subdomains · this · paper · belongs · to]</span></div>
+                        
+                        <strong class="section-title template-field">Policy Issues:</strong> 
+                        <div><span class="template-placeholder">[Key · policy · areas · this · research · relates · to]</span></div>
+                        
+                        <strong class="section-title template-field">Title:</strong> 
+                        <div><span class="template-placeholder">[Title of the paper]</span></div>
+                        
+                        <strong class="section-title template-field">Published:</strong> 
+                        <div><span class="template-placeholder">[Date the paper was published]</span></div>
+                        
+                        <strong class="section-title template-field">Authors:</strong> 
+                        <div><span class="template-placeholder">[Author(s) who published the paper]</span></div>
+                        
+                        <strong class="section-title template-field">Source:</strong> 
+                        <div><span class="template-placeholder">[Link to the paper]</span></div>
+                    </div>
+                </section>
+                
+                <section>
+                    <h2>THE GIST</h2>
+                    <p><em>This section .... </em></p>
+                    
+                    <h3 >So... What? (Policy Bottom line):</h3>
+                    <p class="template-placeholder">[A one or two liner summarizing the paper's essence. Why should policymakers care? This is the elevator pitch.]</p>
+
+                    <h3 class="section-title template-field" >Governance considerations:</h3>
+                    <p class="template-placeholder">[How might this affect AI governance? What are potential policy actions?]</p>
+                </section>
+                
+                <section>
+                    <h2>THE WAVE</h2>
+                    <p><em>This section .... </em></p>
+                    <h3 class="section-title template-field">Key Context and Findings:</h3>
+                    <p class="template-placeholder">[What does the paper describe, and what are its results? Can include background problem/motivation, comparison to other methods/context, 
+                        approach/methods, main findings, limitations, dual use concerns, conclusions, and future work. Important technical <span class="keyword" data-term="terms">terms</span>
+                        are defined.]</p>
+                    
+                    <h3 class="section-title template-field">Stakeholders:</h3>
+                    <p class="template-placeholder">[Who should care? Which industries are affected?]</p>
+                </section>
+                
+                <section>
+                    <h2>DIVING DEEP</h2>
+                    <p><em>This section .... </em></p>
+                    <div class="tech-level-header">
+                        <h3 class="section-title template-field">Technical Level/Accessibility:</h3>
+                        <div class="tech-level-indicator">
+                            <div class="tech-level-dot filled"></div>
+                            <div class="tech-level-dot"></div>
+                            <div class="tech-level-dot"></div>
+                            <div class="tech-level-dot"></div>
+                            <div class="tech-level-dot"></div>
+                        </div>
+                    </div>
+                    <div class="tech-level template-placeholder">
+                        <p>(0: no technical knowledge required, 5: highly in-depth knowledge required)</p>
+                    </div>
+                    
+                    
+                    <h3 class="section-title template-field">Prerequisites:</h3>
+                    <p class="template-placeholder">[Which concepts you definitely should be familiar with if planning to read this paper]</p>
+                    
+                    <h3 class="section-title template-field" >Related Reading:</h3>
+                    <ul class="related-list template-placeholder">
+                        <li><strong>Accessible explanation:</strong> [Link to blog post/explainer]</li>
+                        <li><strong>Policy Analysis:</strong> [Link to policy analysis]</li>
+                    </ul>
+                </section>
+            </div>
+        </main>
+        
+        <div class="sidebar" id="sidebar">
+            <button class="close-sidebar" id="closeSidebar">×</button>
+            <h2 id="sidebar-title">Field Explanation</h2>
+            <div id="sidebar-content" style="font-weight: 400; line-height: 1.6;">
+                <!-- Content will be dynamically populated -->
+            </div>
+        </div>
+    </div>    
+    <!-- Direct script to ensure sidebar functionality works -->
+    <script>
+        // Dictionary of technical terms and their explanations
+        const termDefinitions = {
+            'scaling-supervision': `
+                <h3>Scaling supervision</h3>
+                <p>This refers to the challenge of maintained effective supervision as AI systems become more capable and complex. As AI systems become more powerful, the supervision needed to ensure they behave increases. This can create several issues: 1) human oversight bottleneck: for example, having humans review potentially harmful outputs becomes impractical at scale - just think of the challenges of moderating a platform like Facebook 2) expertise requirements: for some capabilities, a certain level of domain expertise is required to effectively supervise and evaluate responses, and humans with this expertise are rare.</p>
+            `,
+            'machine-learning': `
+                <h3>Machine Learning</h3>
+                <p>Machine learning is a field of artificial intelligence that focuses on building systems that can learn from and make decisions based on data. Rather than being explicitly programmed for a task, these systems identify patterns in data to improve their performance over time.</p>
+                <p>Modern AI systems, including large language models, use sophisticated machine learning techniques to process and generate human-like text based on the patterns they've learned from vast datasets.</p>
+            `,
+            'reinforcement-learning': `
+                <h3>Reinforcement Learning from Human Feedback (RLHF)</h3>
+                <p>How reinforcement learning from human feedback (RLHF) works: 1) AI models are trained on vast amounts of text data to learn language patterns 2) humans provide feedback by ranking different AI responses from most to least preferred 3) this feedback is used to created a reward model (a complex mathematical model of the preferences) which can predict which responses humans prefer and 4) the AI is trained to maximize the reward it gets from the model, thus learning to generate responses that humans would rate highly</p>
+            `,
+            'terms': `
+        <h3Term Definition</h3>
+        <p>This is an example of a term definition.</p>`
+        };
+
+        function toggleTermDefinition(term, clickEvent) {
+    const sidebar = document.getElementById('sidebar');
+    const sidebarContent = document.getElementById('sidebar-content');
+    const sidebarTitle = document.getElementById('sidebar-title');
+    
+    // Check if sidebar is already active and showing the same term
+    if (sidebar.classList.contains('active') && sidebar.getAttribute('data-current-term') === term) {
+        // If it's the same term, close the sidebar
+        sidebar.classList.remove('active');
+    } else {
+        // Get the clicked element's position
+        const clickedElement = clickEvent.target;
+        const rect = clickedElement.getBoundingClientRect();
+        
+        // Get main content element
+        const mainContent = document.querySelector('main');
+        const mainRect = mainContent.getBoundingClientRect();
+        
+        // Update content first so we can calculate height
+        sidebarTitle.textContent = 'Term Definition';
+        sidebarContent.innerHTML = termDefinitions[term] || 'Definition not found';
+        
+        // Show the sidebar to calculate its height, but make it invisible
+        sidebar.style.visibility = 'hidden';
+        sidebar.classList.add('active');
+        
+        // Calculate how much space we have below the clicked term
+        const spaceBelow = window.innerHeight - rect.bottom;
+        
+        // Calculate optimal vertical position
+        let topPosition = rect.top;
+        
+        // If there's not enough space below and sidebar height exceeds available space
+        if (sidebar.offsetHeight > spaceBelow && sidebar.offsetHeight < rect.top) {
+            // Position the sidebar so its bottom aligns with the bottom of the clicked term
+            topPosition = rect.bottom - sidebar.offsetHeight;
+        } else if (sidebar.offsetHeight > spaceBelow && sidebar.offsetHeight > rect.top) {
+            // If sidebar is taller than both spaces, position it at the top of the viewport
+            // with enough room to scroll
+            topPosition = 20; // 20px from top of viewport
+        }
+        
+        // Position sidebar beside main content
+        sidebar.style.top = topPosition + 'px';
+        sidebar.style.left = (mainRect.right + 20) + 'px';
+        sidebar.style.right = 'auto';
+        
+        // Make the sidebar visible again
+        sidebar.style.visibility = 'visible';
+        
+        // Store the current term being displayed
+        sidebar.setAttribute('data-current-term', term);
+    }
+}
+
+// Function to close sidebar
+function closeSidebar() {
+    const sidebar = document.getElementById('sidebar');
+    sidebar.classList.remove('active');
+}
+
+// Event listeners
+document.addEventListener('DOMContentLoaded', function() {
+    // Set up keyword click handlers
+    const keywords = document.querySelectorAll('.keyword');
+    keywords.forEach(keyword => {
+        keyword.addEventListener('click', function(event) {
+            const term = this.getAttribute('data-term');
+            toggleTermDefinition(term, event);
+            event.stopPropagation(); // Prevent bubbling
+        });
+    });
+    
+    // Set up sidebar close button
+    document.getElementById('closeSidebar').addEventListener('click', function(event) {
+        closeSidebar();
+        event.stopPropagation(); // Prevent bubbling
+    });
+    
+    // Close sidebar when clicking elsewhere on the page
+    document.addEventListener('click', function(event) {
+        if (!event.target.closest('.sidebar') && !event.target.classList.contains('keyword')) {
+            closeSidebar();
+        }
+    });
+    
+    // Set up tag click handlers (for domain filtering - would expand in full implementation)
+    const tags = document.querySelectorAll('.tag');
+    tags.forEach(tag => {
+        tag.addEventListener('click', function() {
+            alert(`In a full implementation, this would show all papers tagged with "${this.textContent}"`);
+        });
+    });
+});
+    </script>
+</body>
+</html>
