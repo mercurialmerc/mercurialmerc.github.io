@@ -179,7 +179,7 @@ h3.section-title {
 
 .tech-level-indicator {
     display: flex;
-    margin-left: 1rem;
+    margin-left: 0rem;
 }
 
 .tech-level-dot {
@@ -323,3 +323,35 @@ p {
         width: 100%;
     }
 }
+
+.about-container {
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.profile {
+    display: flex;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.profile-pic {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    background-color: #f0f0f0;
+    margin-right: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    color: #999;
+}
+
+.feedback-section {
+    margin-top: 3rem;
+    padding: 1.5rem;
+    background-color: #f9f9f9;
+    border-left: 3px solid var(--primary);
+}
+

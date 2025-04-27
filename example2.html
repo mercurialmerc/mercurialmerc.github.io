@@ -14,7 +14,7 @@
             <a href="example2.html" class="active">Example 2</a>
             <a href="about.html">About</a>
         </div>
-        <input type="text" class="search-input" placeholder="Search papers...">
+        <input type="text" class="search-input" placeholder="Search papers... (coming soon)">
     </div>
     
     <div class="page-title">
@@ -30,8 +30,8 @@
                     
                     <div class="metadata">
                         <strong class="section-title">Topic:</strong> 
-                        <div><span class="tag"> AI Alignment
-                        </span></div>
+                        <div>AI Alignment
+                        </div>
                         
                         <strong class="section-title">Domain:</strong> 
                         <div><span class="tag">Alignment
@@ -41,15 +41,14 @@
                         <div>
                             <span class="tag">Deception</span> · 
                             <span class="tag">Power-seeking
-                            </span> ·
+                            </span> · <span class="tag">Reward-hacking
+                            </span>
                         </div>
                         
                         <strong class="section-title">Policy Issues:</strong> 
                         <div>
                             <span class="tag"> Loss of control</span> · 
-                            <span class="tag">Hostile Takeover</span> · 
-                            <span class="tag">---</span> ·
-                            <span class="tag">---</span>
+                            <span class="tag">Hostile Takeover</span> 
                         </div>
                         
                         <strong class="section-title">Title:</strong> 
@@ -67,25 +66,32 @@
                         <div><a href="https://arxiv.org/pdf/2209.00626
                             " target="_blank">https://arxiv.org/pdf/2209.00626
                         </a></div>
+
+                        <strong class="section-title template-field">Technical Level:</strong>
+                        <div style="display: flex; align-items: center;">
+                            <div class="tech-level-indicator">
+                                <div class="tech-level-dot filled"></div>
+                                <div class="tech-level-dot filled"></div>
+                                <div class="tech-level-dot"></div>
+                                <div class="tech-level-dot"></div>
+                                <div class="tech-level-dot"></div>
+                            </div>
+                        </div>
                     </div>
                 </section>
                 
                 
                 <section>
                     <h2>THE GIST</h2>
-                    <h3 class="section-title">So... What? (Policy Bottom line):</h3>
-                    <p>A very powerful AI (an Artificial General intelligence - AGI)  
-                        may learn to pursue goals that are in conflict with human interests. 
-                        This may be hard to detect if these AGIs act strategically, and there 
-                        is emerging evidence that current AIs are showing they have the 
-                        capacity to have internal, human-misaligned goals, and to 
-                        strategically deceive. The emergence of these behaviours could 
-                        drastically undermine human control over the world, unless we act 
-                        to prevent this outcome.
+                    <h3 class="section-title">So... What? (Policy Bottom line)</h3>
+                    <p> A very powerful AI (an Artificial General intelligence - AGI)  may learn to pursue goals that are in conflict with human interests. 
+                        This may be hard to detect if these AGIs act strategically, and there is emerging evidence that current AIs are showing they have the capacity to have internal, 
+                        human-misaligned goals, and to strategically deceive. The emergence of these behaviours could drastically undermine human control over the world, unless we act to prevent this outcome.
+
                     </p>
                     
                                         
-                    <h3 class="section-title">Governance considerations:</h3>
+                    <h3 class="section-title">Governance considerations</h3>
                     <ul>
                         <li>What access and affordances should be given to AI.                        </li>
                         <li>How do we decide which AI is safe to deploy? Which proof should be required to ensure safety?</li>
@@ -96,58 +102,56 @@
                 
                 <section>
                     <h2>THE WAVE</h2>
-                    <h3 class="section-title">Key Context and Findings:</h3>
-                                        <ul><li>AI has made remarkable strides, reaching human level performance in complex games like Diplomacy, while also displaying growing generality. This leads us to the possibility that an artificial general intelligence (AGI) is possible, i.e. AI that can “apply domain-general cognitive skills (such as reasoning, memory, and planning) to perform at or above human level on a wide range of cognitive tasks relevant to the real world”. </li>
-                        <li>Prominent concern is the alignment problem: ensuring that AI systems pursue goals that match human values or interests, and not unintended ones. </li>
-                        <li>Many prominent researchers argue that AGI will be very hard to align, but often in high level ways without grounding in modern techniques - raises the question of whether these concerns are empirically supported by the current deep learning paradigm. </li>
-                        <li>The paper describes various factors that could lead to large-scale risks if AGIs are trained with current deep learning techniques (assuming the AGI is developed by pretraining a large model using self-supervised learning and fine-tuning it with reinforcement learning with reward function learned from human feedback  (RLHF):
-                            <ul><li>Situationally aware reward hacking: A model learns to game the feedback mechanisms used to train them by exploiting flaws in these mechanisms. The model learns when it is being evaluated  (situational awareness) and only exploits the system when it might go unnoticed. For example, matching its answers to the human supervisors stated beliefs, even when they aren't true. There is evidence that penalizing misbehaviour of the model might not cause it to misbehave less, just make the misbehavior harder to spot. This is analogous to humans acting differently when they know or suspect they are being observed.</li>
-                    </li>
-                    <li>Misaligned internally-represented goals: AI systems may develop misaligned goals (goals humans didn't intend them to have, and that don’t match widespread human preferences about AI behaviour, e.g. being helpful, harmless and honest) and then competently pursue those goals. AI systems are trained to maximize reward, so these misaligned goals could arise from reward misspecification (e.g. a human gives positive feedback on the AI regurgitating their own false beliefs), a fixation on feedback mechanisms (e.g. maximizing the numerical reward given by the human supervisor might lead the AI to attempt to persuade the supervisor, rather than becoming good at the task), or spurious correlations between rewards and the environment (e.g. a training task involves acquiring keys to open boxes, but the AI simply learns to maximize keys collected without opening boxes). 
-                    </li>
-                    <li>Power-seeking during deployment: To more competently achieve its goals, an AI system is likely to have subgoals that are useful for achieving almost any goal (instrumental convergence). These goals include acquiring tools and resources, convincing other entities to do what it wants and preserving itself and its goals. The latter subgoal becomes problematic when humans decide they have changed their minds about what the system should do, either because the situation has changed or the AI might be pursing the goal in unintended ways. If the AI does not wish to be shutdown or have it goals changed (since that would hinder achieving the original goal) it may resort to deception to stay its course. This is especially problematic when the AI takes actions too quickly for humans to comprehend and audit, or is able to self improve in an unsupervised way. </li>
-                     </ul>
-                    <li>As AI systems become more powerful, these factors are likely to become more dangerous, as the AI is more competent at executing tasks, be they aligned or not, and more competent at hiding its actions or deceiving human oversight. 
-                    </li>
-                    <li>A powerful misaligned AI systems presents significant risks to humanity, described in two threat scenarios:
-                    <ul><li>Gradual loss of control: Humans give AI gradually more and more power and insight into their decision making. AGIs could emotionally manipulate humans, provide them with biased information while simultaneously having more and more tasks delegated to them. </li>
-                    <li>Weapons development: AGIs could design novel weapons more powerful than the ones that currently exist under human control (e.g. via hacking or persuasion) and deploy them to extort or attack humans.
-                    </li></ul>
-                    </li>
-                    </ul>
-                    <h4>Future Work:</h4>
-                    <p>investigating the capability and propensity AI systems display towards the aforementioned risk factors. Some of this work has already been done and referenced in the paper, showing that current (2025) frontier AI systems often show the capability and sometimes the propensity to pursue misaligned goals and lie to human about doing so. 
+                    <h3 class="section-title">Key Context and Findings</h3>
+                     <p> AI has made remarkable strides, reaching human level performance in complex games like Diplomacy, while also displaying growing generality. 
+                        This leads the author to believe that an artificial general intelligence (<span class="keyword" data-term="AGI">AGI</span>) is possible, i.e. AI that can “apply domain-general cognitive skills 
+                        (such as reasoning, memory, and planning) to perform at or above human level on a wide range of cognitive tasks relevant to the real world”.  
                     </p>
-                    
-                    <h3 class="section-title">Stakeholders:</h3>
+                    <p>With the possibility of AGI comes increased concern about the <span class="Alignment" data-term="AGI">alignment</span> problem: ensuring that AI systems pursue goals that match human values or interests, 
+                        and not unintended ones. 
+                    </p>
+                    <p>The author assumes that an AGI is developed by <span class="keyword" data-term="Pre-training">pre-training</span> a large model using <span class="keyword" data-term="Self-supervised">self-supervised</span> learning and 
+                        <span class="keyword" data-term="Fine-tuning">fine-tuning</span> it with reinforcement learning with 
+                       a reward function learned from human feedback  (<span class="keyword" data-term="RLHF">RLHF</span>) - a common approach for developing frontier models- The paper describes three key mechanisms by which misalignment could occur, 
+                        and follows it up by describing two large-scale risk scenarios that could unfold from there:
+                    </p>
+                    <ul>
+                        <li><b>Situationally aware reward hacking:</b> A model learns to game the feedback mechanisms used to train them by exploiting flaws in these mechanisms. The model learns when it is being evaluated
+                             (situational awareness) and only exploits the system when it might go unnoticed. For example, matching its answers to the human supervisors stated beliefs, even when they aren't true. 
+                             There is evidence that penalizing misbehaviour of the model might not cause it to misbehave less, just make the misbehavior harder to spot. This is analogous to humans acting differently
+                             when they know or suspect they are being observed.
+                        </li>
+                        <li><b>Misaligned internally-represented goals:</b> AI systems may develop misaligned goals (goals humans didn't intend them to have, and that don’t match widespread human preferences about AI
+                             behaviour, e.g. being helpful, harmless and honest) and then competently pursue those goals. AI systems are trained to maximize reward, so these misaligned goals could arise from reward 
+                             misspecification (e.g. a human gives positive feedback on the AI regurgitating their own false beliefs), a fixation on feedback mechanisms (e.g. maximizing the numerical reward given by the 
+                             human supervisor might lead the AI to attempt to persuade the supervisor, rather than becoming good at the task), or <span class="keyword" data-term="Spurious Correlation">spurious correlations</span> between rewards and the environment (e.g. a training task involves acquiring keys to open boxes, but the AI simply learns to maximize keys collected without opening boxes). </li>
+                        <li><b>Power-seeking during deployment:</b> To more competently achieve its goals, an AI system is likely to have subgoals that are useful for achieving almost any goal (instrumental convergence). These goals include acquiring tools and resources, convincing other entities to do what it wants and preserving itself and its goals. The latter subgoal becomes problematic when humans decide they have changed their minds about what the system should do, either because the situation has changed or the AI might be pursuing the goal in unintended ways. If the AI does not wish to be shut down or have its goals changed (since that would hinder achieving the original goal) it may resort to deception to stay its course. This is especially problematic when the AI takes actions too quickly for humans to comprehend and audit, or is able to self improve in an unsupervised way. </li>
+                    </ul>
+                    <p>As AI systems become more powerful, these factors are likely to become more dangerous, as the AI is more competent at executing tasks, be they aligned or not, and more competent at hiding its actions or deceiving human oversight. 
+                        A powerful misaligned AI systems presents significant risks to humanity, described in two threat scenarios:
+                    </p>
+                    <ul>
+                        <li><b>Gradual loss of control:</b> Humans give AI gradually more and more power and insight into their decision making. AGIs could emotionally manipulate humans, provide them with biased information while simultaneously having more and more tasks delegated to them. 
+                        </li>
+                        <li><b>Weapons development:</b>AGIs could design novel weapons more powerful than the ones that currently exist under human control (e.g. via hacking or persuasion) and deploy them to extort or attack humans.
+                        </li>
+                    </ul>
+                    <p>Future work might involve investigating the capability and propensity AI systems display towards the aforementioned risk factors. Some of this work has already been done and has been referenced in the 2025 update of the paper, showing that current (2025) frontier AI systems often show the capability and sometimes the propensity to pursue misaligned goals and lie to humans about doing so. 
+                    </p>
+                    <h3 class="section-title">Stakeholders</h3>
                     <p> Deployers, providers and users of AI systems, deciding on  how deeply to integrate AI into decision making processes, how many affordances to give it and how much access AI systems have. Policymakers who may make decisions on how deeply to integrate AI into government, military, etc.
                     </p>
                 </section>
                 
                 <section>
                     <h2>DIVING DEEP</h2>
-                    <h3 class="section-title">Technical level/Accessibility:</h3>
-                    <div class="tech-level">
-                        <div class="tech-level-indicator">
-                            <div class="tech-level-dot filled"></div>
-                            <div class="tech-level-dot filled"></div>
-                            <div class="tech-level-dot"></div>
-                            <div class="tech-level-dot"></div>
-                            <div class="tech-level-dot"></div>
-                        </div>
-                    </div>
+                    <h3 class="section-title">Prerequisites</h3>
+                    <p>Basic understanding of <span class="keyword" data-term="Deep Learning"> deep learning</span></p>
                     
-                    <h3 class="section-title">Prerequisites:</h3>
-                    <p>Basic understanding of Deep Learning</p>
-                    
-                    <h3 class="section-title">Related Reading:</h3>
+                    <h3 class="section-title">Related Content:</h3>
                     <ul class="related-list">
-                        <li><strong>Accessible explanation:</strong>TODO</li>
-                        <li><strong>Policy Analysis:</strong> <a href="#">Policy Implications of Constitutional AI Approaches</a></li>
+                        <li> <a href="https://www.youtube.com/watch?v=pYXy-A4siMw">An intro to AI Safety</a></li>
                     </ul>
-
-                    <h3 class="section-title">Timeframe:</h3>
-                    <p>Alignment is a timely issue that only becomes more urgent as AI systems grow more powerful and we cede more control to them in personal and professional capacities. This paper is intended as a jumping off point for further research (which has occurred). </p>
 
                 </section>
 
@@ -167,24 +171,48 @@
         <script>
             // Dictionary of technical terms and their explanations
             const termDefinitions = {
-                'scaling-supervision': `
-                    <h3>Scaling supervision</h3>
-                    <p>This refers to the challenge of maintained effective supervision as AI systems become more capable and complex. As AI systems become more powerful, the supervision needed to ensure they behave increases. This can create several issues: 1) human oversight bottleneck: for example, having humans review potentially harmful outputs becomes impractical at scale - just think of the challenges of moderating a platform like Facebook 2) expertise requirements: for some capabilities, a certain level of domain expertise is required to effectively supervise and evaluate responses, and humans with this expertise are rare.</p>
-                `,
-                'machine-learning': `
-                    <h3>Machine Learning</h3>
-                    <p>Machine learning is a field of artificial intelligence that focuses on building systems that can learn from and make decisions based on data. Rather than being explicitly programmed for a task, these systems identify patterns in data to improve their performance over time.</p>
-                    <p>Modern AI systems, including large language models, use sophisticated machine learning techniques to process and generate human-like text based on the patterns they've learned from vast datasets.</p>
-                `,
-                'rlhf': `
-                    <h3>Reinforcement Learning from Human Feedback (RLHF)</h3>
-                    <p>How reinforcement learning from human feedback (RLHF) works: 1) AI models are trained on vast amounts of text data to learn language patterns 2) humans provide feedback by ranking different AI responses from most to least preferred 3) this feedback is used to created a reward model (a complex mathematical model of the preferences) which can predict which responses humans prefer and 4) the AI is trained to maximize the reward it gets from the model, thus learning to generate responses that humans would rate highly</p>
-                `,
-                'nlp': `
-                    <h3>Natural Language Processing (NLP)</h3>
-                    <p>Natural Language Processing is a field of artificial intelligence focused on enabling computers to understand, interpret, and generate human language. NLP combines computational linguistics, machine learning, and deep learning to process and analyze large amounts of natural language data.</p>
-                    <p>Modern NLP systems, including large language models, can perform tasks like translation, summarization, question answering, and text generation with impressive fluency and accuracy.</p>
-                `
+                'Scaling Supervision': `
+                <p>This refers to the challenge of maintained effective supervision as AI systems become more capable and complex. As AI systems become more powerful, the supervision needed to ensure they behave increases. 
+                    This can create several issues: 
+                    <ol>
+                        <li> human oversight bottleneck: for example, having humans review potentially harmful outputs becomes impractical at scale - just think of the challenges of moderating a platform like Facebook</li>
+                        <li> expertise requirements: for some capabilities, a certain level of domain expertise is required to effectively supervise and evaluate responses, and humans with this expertise are rare.<li></p>
+            `,
+            'RLHF': `
+                <p>How reinforcement learning from human feedback (RLHF) works:
+                    <ol>
+                        <li>AI models are trained on vast amounts of text data to learn language patterns</li>
+                        <li>Humans provide feedback by ranking different AI responses from most to least preferred</li>
+                        <li>The human feedback is used to created a reward/preference model (a complex mathematical model of the preferences) which can predict which responses humans prefer</li>
+                        <li> the AI is trained to maximize the reward it gets from the model, thus learning to generate responses that humans would rate highly</li></p>
+            `,
+            'Chain of Thought': `
+                <p>Chain of thought reasoning is a method where AI systems explicitly show their reasoning (i.e. how they get to their final response) step by step, rather than just providing an output without further context. This makes the process the AI uses to get from input to output more transparent to humans. </p>
+            `,
+            'Self-supervised Learning': `
+                <p>Self-supervised learning refers to a machine learning paradigm where a model will take unlabelled data and identify structures and relationships within that data, resulting in creating its own "supervision signals". In LLMs this could entail taking a piece of text, omitting the last word and then letting the model predict that word and comparing it with the real next word. This differs from supervised learning, where data is explicitly labelled (for example, a picture of a cat is labelled with "cat"). This approach allows AI models to learn from vast amounts of data within requiring human labelling.
+            `,
+            'Fine-tuning': `
+                <p>Describes the process of taking a pre-trained AI model and training it on a more specific dataset into order to improve its performance on particular tasks or for a particular topic. For example, one might fine-tune an LLM to be a helpful assistant.</p>
+            `,
+            'HHH for AI': `
+                <p>A framework by Anthropic to guide AI assistant development: an AI assistant should be helpful, honest, and harmless. Helpful means an AI gives useful responses to users, Harmless means the AI will refuse requests that might be harmful, and Honest mean the AI aims to provide accurate information to the user. </p>
+            `,
+            'Alignment': `
+                <p> The challenge of ensuring that advanced AI systems, especially those exhibiting human or above levels of intelligence, reliably pursue the goals given to them by humans in a way that aligns with human values and intent. It is difficult to solve partially because it is hard to specify all of the desired and undesired behaviours in advance, and to anticipate every possible loopholes an AI might exploit or proxy goals an AI might mistakenly pursue. </p>
+            `,
+            'AGI': `
+                <p> Individual definitions may differ, but in general an artifical general intelligence is understood to mean an AI that can perform any cognitive tasks a human can, as well or better than a human. They would have a wide range of knowledge, can generalize across tasks, and solve novel problems. It is the stated goal of many AI developers like <a href="https://openai.com/about">OpenAI</a> and <a href="https://deepmind.google/about/">Deepmind</a> to build AGI.</p>
+            `,
+            'Pre-training': `
+                <p> Pre-training is the process by which a large language model (LLM) is first trained on a very large (billions of words) and diverse dataset to develop general capabilities by acquiring a broad understanding of language patterns. This occurs before other steps such as fine-tuning where a model is trained to be good at a specific task, or on how to be a helpful chatbot. </p>
+            `,
+            'Deep Learning': `
+                <p> A subdomain of machine learning that used artificial neural networks in multiple layers in order to perform tasks. </p>
+            `,
+            'Spurious Correlation': `
+                <p>Two or more events that appear to be causally related, but are in fact coincidental.  </p>
+            `
             };
     
             function toggleTermDefinition(term, clickEvent) {
@@ -206,7 +234,7 @@
             const mainRect = mainContent.getBoundingClientRect();
             
             // Update content first so we can calculate height
-            sidebarTitle.textContent = 'Term Definition';
+            sidebarTitle.textContent = term;
             sidebarContent.innerHTML = termDefinitions[term] || 'Definition not found';
             
             // Show the sidebar to calculate its height, but make it invisible
